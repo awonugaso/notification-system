@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PublishController;
+use App\Http\Controllers\SubscriptionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::post('/subscribe/{topic:title}', SubscriptionController::class);
+Route::post('/publish/{title}', PublishController::class);
