@@ -20,6 +20,6 @@ class PublishController extends Controller
                
         PublishToSubscribers::dispatch($topic, $data);
 
-        return response()->json([], 201);
+        return response()->json(['Topic Published Queued.'], 201);
     }
 }
