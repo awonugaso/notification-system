@@ -16,13 +16,14 @@ class SubscriptionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request, Topic $topic)
+    public function __invoke(Request $request, $title)
     {
-        
 
-        $request->validate([
-            'url' => 'required|string|max:225|url'
+        $aa = $request->validate([
+            'url' => 'required|url:'
         ]);
+
+        $topic = Topic::firstOrCreate(['title' => $title]);
 
         $url = Str::endsWith($request->url, '/') ? Str::substr($request->url, 0, -1) : $request->url;
         

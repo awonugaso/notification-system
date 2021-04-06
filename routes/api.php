@@ -20,5 +20,5 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('/subscribe/{topic:title}', SubscriptionController::class);
+Route::post('/subscribe/{title}', SubscriptionController::class);
 Route::post('/publish/{title}', PublishController::class);
