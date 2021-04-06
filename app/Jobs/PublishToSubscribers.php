@@ -41,7 +41,9 @@ class PublishToSubscribers implements ShouldQueue
         $topic =  Topic::find($this->topic->id);
         
         foreach ($topic->subscribers as $subscriber) {
-                    $response = Http::post($subscriber->endpoint, ['data' => $this->payLoad]);
-                }
+                    $response = Http::post($subscriber->endpoint, [
+                                'topic', $this->topic->title, 
+                                'data' => $this->payLoad]);
+}
     }
 }
