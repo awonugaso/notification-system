@@ -11,11 +11,11 @@ For this challenge we'll be creating a HTTP notification system. A server (or se
 
 
 ## Endpoints
-- POST /subscribe/{topic}
+POST /subscribe/{topic}
 - expected body {url: string}
 - response { url: string, topic: string }
 
-- POST /publish/{topic}
+POST /publish/{topic}
 - expected body { [key: string]: any }
 
 ## Testing
